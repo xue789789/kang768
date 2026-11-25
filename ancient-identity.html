@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#193731">
+<title>你在古代是什么身份</title>
+<style>
+:root{--ink:#193731;--paper:#faf2e3;--muted:#62584a;--red:#9b352a;--line:#d5c6a8;--serif:"Songti SC","Noto Serif CJK SC",SimSun,STSong,serif}
+*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;background:#ebe2d1;color:var(--ink);font:16px/1.6 system-ui,"Microsoft YaHei",sans-serif}button{cursor:pointer;font:inherit}button:focus-visible,input:focus-visible+span{outline:3px solid #9b4425;outline-offset:3px}.wrap{width:min(960px,calc(100% - 36px));margin:auto}header,footer{color:var(--muted);font-size:.78rem;letter-spacing:.12em;padding:20px 2px}header{display:flex;align-items:center;justify-content:space-between;gap:8px}header b{display:inline-grid;place-items:center;background:var(--red);color:#fff3db;border:3px double #fff3db;border-radius:3px;width:32px;height:32px;font:20px var(--serif);margin-right:8px;vertical-align:middle}footer{text-align:center}
+.hero,.sheet,.card{position:relative;overflow:hidden;border-radius:4px;box-shadow:0 15px 42px #30271924}.hero{display:grid;grid-template-columns:1.35fr 1fr;min-height:515px;background:radial-gradient(ellipse at 85% 65%,#3b5d4e,#193731 65%);color:#fff4dc}.hero::after,.card::after{content:"";position:absolute;inset:9px;border:1px solid #ac885b65;pointer-events:none}.intro{align-self:center;padding:clamp(32px,7vw,75px);padding-right:12px}.eyebrow{margin:0 0 16px;color:#e8cc98;font-size:.78rem;letter-spacing:.18em;font-weight:bold}h1,h2,h3,legend{font-family:var(--serif)}h1{margin:0;font-size:clamp(2.45rem,6.4vw,5rem);line-height:1.12;letter-spacing:-.045em}.intro p:not(.eyebrow){max-width:24em;color:#f0e1c3;margin:20px 0 24px}.art{display:grid;place-items:center;position:relative;isolation:isolate;color:#ead6ac}.art::before,.art::after{content:"";position:absolute;border:1px solid #e7cb8b65;border-radius:50%;width:min(80%,322px);aspect-ratio:1;z-index:-1}.art::after{width:min(69%,276px);border-style:dashed}.art span{writing-mode:vertical-rl;font:clamp(3.4rem,8vw,7rem)/1 var(--serif);letter-spacing:.12em;text-shadow:0 8px 24px #0d221b}.art i{position:absolute;right:18%;bottom:20%;display:grid;place-items:center;width:46px;height:46px;font:23px var(--serif);transform:rotate(-9deg);border:4px double #ead6ac;background:var(--red);border-radius:3px}
+button{min-height:46px;padding:9px 17px;border:1px solid transparent;border-radius:3px;background:var(--ink);color:#fff6e4;font-weight:700}button:hover{background:#2d5348}.gold{background:#e8cc98;color:#20332b}.gold:hover{background:#f7dcb0}.ghost{background:transparent;color:var(--ink);border-color:#a7997f}.ghost:hover{background:#ebe1cb}button:disabled{opacity:.48;cursor:default}
+.sheet{max-width:680px;margin:auto;background:var(--paper);border:1px solid var(--line);padding:clamp(20px,5.5vw,52px)}.progress-head,.controls,.card-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.progress-head{color:var(--muted);font-size:.85rem;margin-bottom:8px}.progress-head strong{color:var(--red);font-variant-numeric:tabular-nums}progress{display:block;width:100%;height:6px;appearance:none;border:0;background:#e6d9bf;border-radius:10px;overflow:hidden}progress::-webkit-progress-bar{background:#e6d9bf}progress::-webkit-progress-value{background:var(--red);transition:width .22s}progress::-moz-progress-bar{background:var(--red)}fieldset{min-width:0;border:0;padding:0;margin:23px 0 18px}legend{padding:0;margin-bottom:17px;width:100%;font-size:clamp(1.45rem,4vw,2rem);font-weight:bold;line-height:1.32}.choice{display:block;position:relative;margin-bottom:9px;cursor:pointer}.choice input{position:absolute;opacity:0}.choice span{display:flex;align-items:center;gap:11px;background:#fffbf2;border:1px solid var(--line);border-radius:4px;min-height:52px;padding:9px 12px}.choice b{flex:none;display:grid;place-items:center;width:27px;height:27px;border:1px solid var(--line);border-radius:50%;font-size:.76rem}.choice:hover span{border-color:#71896e}.choice input:checked+span{background:#e5ecde;border-color:#4d694e}.choice input:checked+span b{color:white;background:var(--ink);border-color:var(--ink)}.enter{animation:enter .26s ease-out both}@keyframes enter{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.result{max-width:580px;margin:auto}.card{background:var(--paper);border:1px solid var(--line);padding:clamp(23px,6vw,46px)}.card-head{color:var(--red);font-weight:700;letter-spacing:.12em;font-size:.78rem}.badge{font:700 1.15rem var(--serif);border:3px double currentColor;padding:5px 8px;transform:rotate(5deg)}.card h2{font-size:clamp(2.8rem,11vw,5rem);line-height:1.06;margin:9px 0}.quote{font:bold clamp(1.1rem,4vw,1.42rem)/1.45 var(--serif);color:var(--red);margin:14px 0}.traits{font-weight:bold;font-size:.9rem;padding-bottom:12px;border-bottom:1px solid var(--line)}.card h3{font-size:1.04rem;margin:10px 0 1px}.detail p{margin:0;font-size:.91rem;color:#504739}.card-foot{border-top:1px solid var(--line);margin:14px 0 0;padding-top:8px;font-size:.72rem;color:var(--muted)}.actions{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:14px 0 4px}.hint{text-align:center;color:var(--muted);font-size:.78rem;margin:4px 0 10px}.capture header,.capture footer{display:none}.capture main{padding:11px 0}.capture .card{max-width:430px;margin:auto;padding:25px}.capture .card h2{font-size:2.9rem}.capture .quote{margin:8px 0}.capture .card h3{margin-top:6px}.capture .detail p{font-size:.84rem}
+@media(max-width:620px){.wrap{width:calc(100% - 24px)}header{padding:12px 2px}.hero{min-height:0;grid-template-columns:1fr}.intro{padding:29px 24px 8px}.art{min-height:167px}.art span{font-size:3.25rem;writing-mode:horizontal-tb}.art::before{width:150px}.art::after{width:131px}.art i{right:calc(50% - 92px);bottom:19px;width:36px;height:36px;font-size:16px}.sheet{padding:19px 15px}.card{padding:23px 21px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><span><b aria-hidden="true">印</b>古代身份测试</span><span>趣味人格 · 40 题</span></header>
+<main>
+<section id="home" class="hero" aria-labelledby="title">
+  <div class="intro">
+    <p class="eyebrow">从今天的选择，认领古代的身份</p>
+    <h1 id="title" tabindex="-1">你在古代<br>是什么身份</h1>
+    <p>临时改计划、朋友来求助、闲下一个下午，你会怎么选？做完 40 道生活题，看看哪位古人最像你。</p>
+    <button id="start" class="gold" type="button">开启测试 <span aria-hidden="true">→</span></button>
+  </div>
+  <div class="art" aria-hidden="true"><span>照见</span><i>古</i></div>
+</section>
+<section id="quiz" class="sheet" aria-labelledby="question" hidden>
+  <div class="progress-head"><span id="topic"></span><strong id="count"></strong></div>
+  <progress id="progress" max="40" value="0" aria-label="已作答题数"></progress>
+  <form id="answer-form">
+    <fieldset id="group"><legend id="question" tabindex="-1"></legend><div id="choices"></div></fieldset>
+    <div class="controls"><button id="back" class="ghost" type="button">上一题</button><button id="next" type="submit" disabled>下一题</button></div>
+  </form>
+</section>
+<section id="result" class="result" aria-labelledby="person" hidden>
+  <article class="card">
+    <div class="card-head"><span>你的古代身份</span><span class="badge" id="role"></span></div>
+    <h2 id="person" tabindex="-1"></h2>
+    <p id="quote" class="quote"></p><div class="traits" id="traits"></div>
+    <div class="detail">
+      <h3>为什么像你</h3><p id="reason"></p>
+      <h3>隐藏优势</h3><p id="strength"></p>
+      <h3>趣味彩蛋</h3><p id="easter"></p>
+    </div>
+    <p class="card-foot">《你在古代是什么身份》 · 趣味人格测试</p>
+  </article>
+  <div class="actions"><button id="capture" type="button" aria-pressed="false">截图模式</button><button id="restart" class="ghost" type="button">重新测试</button></div>
+  <p id="hint" class="hint" hidden>用手机或电脑的截图功能，截取上方结果卡。</p>
+</section>
+</main>
+<footer>结果为趣味角色类比，仅供娱乐，不作为心理评估。</footer>
+</div>
+<script>
+"use strict";
+
+// 选项开头的字母对应维度，竖线后是玩家看到的文字。
+const chapters = [
+  ["日常习惯", [
+    ["周六突然空出半天，你最想怎么用？","Q|去一条没走过的街看看","I|在家安静待着，把手机调成静音","W|把积了几天的杂事集中处理","L|找间书店，看看会翻到什么"],
+    ["出门前还有十分钟，你通常在做什么？","M|确认路线和备选交通方式","H|问同行的人需不需要帮忙带东西","W|依次检查钥匙、证件和必带物品","Q|看一眼窗外，按天气和心情换身衣服"],
+    ["刚换了新书桌，你打算怎么安排？","L|留一个位置放书和随手写的笔记","D|按每天最重要的事划分桌面","I|留块空处，让自己坐着舒服","M|先试几天，再研究怎么摆最顺手"],
+    ["群里约饭一直定不下来，你最可能做什么？","D|提一个时间和地点，请大家确认","M|筛掉冲突的日期，再比较剩下的选项","H|私聊一直没说话的人，问问他方便吗","Q|提议试试大家收藏很久的小馆子"],
+    ["到了陌生地方，刚好有一小时，你会去哪？","Q|沿着好看的街道随意走走","L|读读墙上的介绍或地方小刊物","I|找个安静角落坐一会儿","H|陪同伴去他最想去的地方"],
+    ["做饭少了一样调料，你会怎么办？","W|调整步骤，用手边材料把这道菜做完","M|想想这味调料的作用，再决定怎么替","Q|干脆试一种完全不同的味道","D|决定改做一道菜，让大家按时开饭"],
+    ["你想培养一个习惯，什么方法更适合你？","W|每天投入固定时间，完成就打勾","I|找个互不打扰的时段慢慢做","L|写下过程，定期看看自己学到了什么","D|定下目标和验收日期，到时看进展"],
+    ["睡觉前回想一天，哪件事最让你觉得过得值？","H|在别人需要时搭了把手","Q|留下一个想分享的瞬间","L|想明白一个困扰很久的问题","I|有段时间真正属于自己"]
+  ]],
+  ["处事方式", [
+    ["旅行当天景点临时关门，你会怎么办？","M|比较替代路线和时间成本","D|选个大家都能接受的新目的地","W|先处理退票和改签，再动身","Q|顺路逛逛，看看有什么意外发现"],
+    ["小组快到截止时间，大家还有分歧，你先做什么？","D|定下当前方向，分清谁需要确认","L|把分歧写清楚，看看争的到底是哪件事","H|请意见被打断的人说完","W|把已经确定的部分先做完"],
+    ["接手一件陌生的任务，你从哪里入手？","M|梳理条件、风险和依赖关系","W|先做一个最简单的可用版本","L|读说明和案例，记下关键概念","I|独自梳理半小时，想清楚自己哪里还没懂"],
+    ["两个人给了完全不同的建议，你会怎么判断？","M|弄清各自在哪些条件下成立","D|按目标先选一条路，约个时间再看效果","L|请两人说明各自的依据","H|先搞清双方有没有误解彼此"],
+    ["活动开始前十分钟，负责签到的人突然来不了，你会？","W|拿现成名单把签到顶起来","D|重新分工，让现场先运转起来","H|先问对方需不需要帮助，再找人接班","M|判断可不可以先入场，等人到齐再补登记"],
+    ["一个活动和你原来的独处时间冲突，你怎么选？","I|看自己最近是不是需要真正休息","D|按近期最重要的目标做取舍","H|问问约好的人，看看能否另找时间","Q|看这次是不是难得遇上的新体验"],
+    ["你的方案没被采用，事情已经定案，你会？","M|看看自己的假设漏掉了什么","W|把已经分给自己的部分做扎实","L|记下原因，下次把想法讲得更清楚","I|接受结果，把注意力收回自己手头的事"],
+    ["收尾时发现小问题，修复可能牵动全局，你会？","D|按影响决定现在修还是留到下一版","M|查清会牵动哪些部分，再排处理顺序","W|在副本上先试一遍，确认可行再改","H|问问使用的人会不会因此遇到困难"]
+  ]],
+  ["社交模式", [
+    ["在一桌半熟的人里，你自然会做什么？","H|把落单的人带进正在聊的话题","I|自在地听，感兴趣时再接一句","Q|讲一个好笑的小见闻","L|顺着一个有意思的话题追问"],
+    ["朋友遇到麻烦来找你，哪句开场白更像你？","H|你想我陪你，还是帮你做点什么？","M|我们先看看有哪几条路可以走。","W|最急的是什么？我现在就帮你处理。","I|慢慢说，我有时间听。"],
+    ["聚会里大家意见不同，气氛有点僵，你会？","L|复述各方观点，找出具体分歧","D|把谈话拉回今晚需要决定的事","Q|用个恰当的玩笑把气氛松一松","H|照顾被打断的人，让他把话说完"],
+    ["朋友要搬家，你最可能带去什么？","W|胶带、记号笔，还有一双能搬箱子的手","H|他爱吃的东西，顺便问问还缺什么","Q|一张只写你们俩懂的梗的卡片","L|一本他提了几次还没买的书"],
+    ["有人在群里误解了你的意思，你倾向于？","L|用几句清楚的话说明原意","I|等情绪平稳，再决定要不要解释","D|直接澄清会影响后续安排的部分","M|找出引起歧义的那句话，再补充信息"],
+    ["朋友约你一起组织周末小聚，你想负责什么？","D|确定主题、时间和人数","W|订位、确认人数，把细节落实","H|把好久没出现的朋友也约来","Q|设计一个好玩的主题或散步路线"],
+    ["新同事很少在讨论中发言，你会留意什么？","H|有没有合适的机会请他开口","M|他是否需要提前拿到材料","I|他是不是更喜欢安静听完再说","L|他偶尔说的话里有没有值得追问的点"],
+    ["朋友在聚会上无意说了句不合适的话，你会？","I|等到了安静场合再和他私聊","H|先照应听了不舒服的人","D|当场简短指出问题，让谈话能继续","L|问清他想表达什么，再说明别人听到了什么"]
+  ]],
+  ["情绪反应", [
+    ["忙了一天却没什么进展，你打算怎么收尾？","W|先完成一件小事，找回行动的节奏","I|停下来吃饭休息，明天再继续","Q|出去走走，看看不一样的景象","M|回看今天具体卡在哪一步"],
+    ["看完电影，有一幕让你久久忘不掉，你会？","Q|记下那一幕给你的感觉","L|想想台词或镜头为什么有效","H|分享给能和你共情的朋友","I|让余味多留一会儿，先不看手机"],
+    ["临上场前很紧张，哪种办法对你最有用？","W|按顺序走一遍自己能控制的步骤","I|找个清静地方，让呼吸慢下来","D|提醒自己今天最需要做到什么","Q|放首适合当下的歌，让自己进入状态"],
+    ["一句评价让你有些受伤，你先关心什么？","L|那句话具体指什么，有没有例子","H|对方怎么想，我们的关系有变化吗","M|这个判断有哪些依据，哪些值得参考","I|自己为什么这么在意，想清楚再回复"],
+    ["准备了很久的事搞砸了，你怎么重新开始？","W|恢复基本的日程和行动","D|确定接下来仍想争取的目标","M|复盘哪个判断出了错，定个新检查点","Q|换个环境，找回想投入的兴致"],
+    ["突然有件特别开心的事，你通常会？","H|告诉参与过或关心这件事的人","Q|拍张照片或写下当时的感受","I|自己先开心一阵，让它留在心里","D|趁着势头好，定下接下来想推进的事"],
+    ["感觉事情有点超出掌控，什么最能让你安心？","M|一个可以随时切换的备选方案","W|清楚此刻能做的第一步","H|和信任的人谈一谈","I|暂时放下消息，把思路整理一下"],
+    ["别人反复催你做决定，你会怎么回应？","D|给对方一个明确的答复时间","L|把还没弄清的问题讲明白","H|问清对方最急的需要，先回应那一部分","M|抓紧核实真正会影响决定的信息"]
+  ]],
+  ["兴趣偏好", [
+    ["周末只选一门体验课，你会报什么？","Q|城市摄影，看看怎么留下有意思的光线","W|基础木工，把一块木头做成能用的东西","L|写作课，练习把经历写清楚","I|陶艺，在安静的重复动作里做一件器物"],
+    ["走进市集，你最可能在哪个摊位停下？","H|摊主正热络地分享制作故事的地方","Q|有手绘明信片和奇妙配色的摊位","L|旧书和手写笔记堆得很高的摊位","M|能玩解谜游戏或拆解小机关的摊位"],
+    ["要做一个完全由你决定的小项目，你会选？","D|组织一次活动，把它做成固定节目","M|做一份省时省钱的生活方案，持续调整","W|练成一项能实打实展示出来的技能","Q|收集一整年的城市声音和照片"],
+    ["在书店里随手抽一本书，你更想抽到哪类？","L|作家谈自己如何阅读和写作","M|线索最后一刻才拼合的谜案","Q|带旅行文字与插画的小册子","I|写独处、四季和日常生活的散文"],
+    ["朋友问你想一起玩哪类桌游，你选？","D|需要有人决定全局方向的经营游戏","M|靠推理和排除法找答案的游戏","H|要互相照应才能过关的合作游戏","Q|要大家一段段即兴接故事的游戏"],
+    ["要为朋友准备一件亲手做的礼物，你会做什么？","W|一件打磨结实、能天天用的小物件","Q|一张把共同回忆画出来的卡片","H|整理一份他最近正好用得上的资料","L|一本写满批注、邀他一起读的小册子"],
+    ["旅行最后一天，你心里最想留住什么？","Q|一张能让你想起当天光线的照片","L|一本写过沿途所见所想的笔记","I|一块让你想起某个安静下午的小石头","H|一件答应带回去给朋友的小礼物"],
+    ["如果每天多出半小时，你愿意长期留给什么？","W|练习一项技能，看自己一点点进步","I|散步或静坐，让一天有自己的空隙","D|推进一件想长期做成的事","M|记录并改进反复遇到的小问题"]
+  ]]
+];
+
+// 人物采用趣味原型。专属文案和彩蛋均为原创设定。
+const profiles = {
+  M: ["谋士","诸葛亮","别人问下一步，你已经备好了下雨的那一步。",
+    "擅长拆局 · 留有后手 · 善找关键","你常在行动前比较几条路，留意哪些变化会让方案失效。这份预判让你像席间看棋局的谋士。",
+    "你能把模糊的担心变成具体的备选方案，给身边的人多一点从容。","你的锦囊里最实用的一张写着：餐馆满座，就去隔壁那条街。"],
+  D: ["帝王","武则天","满桌都是提议，你是那个把日子定下来的人。",
+    "敢于拍板 · 能定方向 · 善分轻重","选项越多，你越想给事情一个明确方向。到了需要有人作决定的时刻，你愿意接下这个责任。",
+    "你能把散落的意见收束成一个大家都知道怎么开始的行动。","如果你掌管群聊，置顶通常只有三行：定了、几点、谁来。"],
+  L: ["文人","欧阳修","别人记得那天热闹，你能写明白热闹从何而来。",
+    "求证 · 善表达 · 爱追问","你喜欢琢磨一个观点为什么成立，也习惯把复杂的经历写清楚。这份追问和表达，让你靠近文人原型。",
+    "你能把众人说不清的分歧还原成几个可以回答的问题。","友人约你写百字游记。你真的交了百字，另附三条批注。"],
+  H: ["侠客","荆轲","江湖再大，你也看得见谁落在了后头。",
+    "重情义 · 留心他人 · 乐于解围","你常先察觉谁需要援手，也愿意相信一件小事能帮人解围。这种有分寸的行动力，让你像侠客原型荆轲。",
+    "你擅长看见没被说出口的需要，并用对方接得住的方式帮忙。","你的江湖代号是「已到楼下」，出场地点通常在朋友最需要帮忙的时候。"],
+  Q: ["诗人","李白","你给日子留了一扇窗，等风自己进来。",
+    "好奇 · 善感受 · 喜欢即兴","你对新鲜场景、光线和气氛格外敏感，也愿意让计划给偶然让一点位置。这份兴致和想象力，让你靠近诗人原型。",
+    "你能给普通的一天找到一个别人也愿意记住的画面。","说好下楼买盐，你拐了两条街去看晚霞。盐最后也买了。"],
+  W: ["将领","岳飞","真到要上场的时候，你已经把鞋带系好了。",
+    "行动扎实 · 紧急时稳 · 有执行力","碰到变化，你常先把能做的事做起来，靠行动恢复节奏。这份遇事能顶上的劲头，让你像将领原型岳飞。",
+    "别人还在辨认混乱从哪来时，你已经找到一个能马上稳住局面的动作。","朋友说「带点东西就行」，你背来了剪刀、纸巾和一卷胶带。"],
+  I: ["隐士","陶渊明","热闹随时可以赴约，自己的下午要先留出来。",
+    "享受独处 · 按自己的节奏生活 · 善于留白","你习惯先为自己留点空间，再决定哪些事值得回应。这份对生活节奏的敏感，让你靠近隐士原型。",
+    "你擅长在外界催促时稳住自己，给重要的感受留出位置。","有人邀你进群，你转头浇了花。回来刚好错过三轮接龙。"]
+};
+
+const questions = chapters.flatMap(([topic, rows]) => rows.map(([title, ...entries], index) => {
+  const options = entries.map(entry => {
+    const [dimension, label] = entry.split("|");
+    return { dimension, label };
+  });
+  const offset = (title.length + index) % options.length;
+  return { topic, title, options: [...options.slice(offset), ...options.slice(0, offset)] };
+}));
+
+const dimensions = Object.keys(profiles);
+const opportunities = Object.fromEntries(dimensions.map(key => [
+  key, questions.filter(question => question.options.some(option => option.dimension === key)).length
+]));
+
+function scoreAnswers(selections) {
+  const picked = questions.map((question, index) => question.options[selections[index]].dimension);
+  const votes = Object.fromEntries(dimensions.map(key => [key, 0]));
+  for (const key of picked) votes[key] += 1;
+
+  // 维度得分 = 选中次数 / 出现题数。交叉相乘比较，避免浮点误差。
+  // 同分时取最近一次选中的同分维度，保证同一组答案结果稳定。
+  return [...new Set(picked.slice().reverse())].reduce((best, key) => {
+    return votes[key] * opportunities[best] > votes[best] * opportunities[key] ? key : best;
+  });
+}
+
+const byId = id => document.getElementById(id);
+const form = byId("answer-form");
+const choiceList = byId("choices");
+let answers = [];
+let current = 0;
+
+function setScreen(screen, heading) {
+  for (const id of ["home", "quiz", "result"]) byId(id).hidden = id !== screen;
+  byId(heading).focus({ preventScroll: true });
+  window.scrollTo(0, 0);
+}
+
+function setCapture(enabled) {
+  document.body.classList.toggle("capture", enabled);
+  byId("capture").setAttribute("aria-pressed", String(enabled));
+  byId("capture").textContent = enabled ? "退出截图模式" : "截图模式";
+  byId("hint").hidden = !enabled;
+  if (enabled) window.scrollTo(0, 0);
+}
+
+function renderQuestion() {
+  const question = questions[current];
+  byId("topic").textContent = question.topic;
+  byId("count").textContent = (current + 1) + " / " + questions.length;
+  byId("progress").value = answers.filter(Number.isInteger).length;
+  byId("question").textContent = question.title;
+  choiceList.replaceChildren();
+
+  question.options.forEach((option, index) => {
+    const label = document.createElement("label");
+    const input = document.createElement("input");
+    const line = document.createElement("span");
+    const letter = document.createElement("b");
+    label.className = "choice";
+    input.type = "radio";
+    input.name = "answer";
+    input.value = index;
+    input.checked = answers[current] === index;
+    letter.textContent = String.fromCharCode(65 + index);
+    letter.setAttribute("aria-hidden", "true");
+    line.append(letter, document.createTextNode(option.label));
+    label.append(input, line);
+    choiceList.append(label);
+  });
+
+  byId("back").disabled = current === 0;
+  byId("next").disabled = !Number.isInteger(answers[current]);
+  byId("next").textContent = current === questions.length - 1 ? "查看结果" : "下一题";
+  const group = byId("group");
+  group.classList.remove("enter");
+  void group.offsetWidth;
+  group.classList.add("enter");
+  setScreen("quiz", "question");
+}
+
+function renderResult() {
+  const profile = profiles[scoreAnswers(answers)];
+  ["role", "person", "quote", "traits", "reason", "strength", "easter"].forEach((id, index) => {
+    byId(id).textContent = profile[index];
+  });
+  setScreen("result", "person");
+}
+
+byId("start").addEventListener("click", renderQuestion);
+choiceList.addEventListener("change", event => {
+  if (byId("quiz").hidden || event.target.name !== "answer") return;
+  answers[current] = Number(event.target.value);
+  byId("progress").value = answers.filter(Number.isInteger).length;
+  byId("next").disabled = false;
+});
+form.addEventListener("submit", event => {
+  event.preventDefault();
+  if (byId("quiz").hidden || !Number.isInteger(answers[current])) return;
+  if (current === questions.length - 1) renderResult();
+  else {
+    current += 1;
+    renderQuestion();
+  }
+});
+byId("back").addEventListener("click", () => {
+  if (current === 0) return;
+  current -= 1;
+  renderQuestion();
+});
+byId("capture").addEventListener("click", () => {
+  setCapture(!document.body.classList.contains("capture"));
+});
+byId("restart").addEventListener("click", () => {
+  answers = [];
+  current = 0;
+  setCapture(false);
+  setScreen("home", "title");
+});
+</script>
+</body>
+</html>

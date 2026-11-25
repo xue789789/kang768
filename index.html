@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3. 你的宿命恋人来自哪个城市</title>
+<style>
+:root{color-scheme:light;--paper:#f6f0e4;--ink:#243932;--muted:#52615a;--red:#933a30;--line:#cabcaa;--serif:"Songti SC","Noto Serif CJK SC",SimSun,serif;--sans:system-ui,"Microsoft YaHei",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--sans)}button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid #966727;outline-offset:4px}button:disabled{opacity:.52;cursor:default}[hidden]{display:none!important}
+.shell{width:min(1040px,calc(100% - 44px));margin:auto}.mast{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--line);font-size:.8rem;letter-spacing:.18em}.brand{display:flex;align-items:center;gap:10px}.seal{display:inline-grid;place-items:center;width:32px;height:32px;border:1px solid currentColor;border-radius:3px;color:var(--red);font:19px var(--serif)}.folio{color:var(--muted)}
+main{padding:clamp(24px,6vw,72px) 0}.hero{display:grid;grid-template-columns:1fr .8fr;align-items:stretch;border:1px solid var(--line);background:#faf5ea}.intro{padding:clamp(24px,5vw,62px)}.kicker{font-size:.79rem;letter-spacing:.24em;color:var(--red);font-weight:700;margin:0 0 13px}.hero h1,.question h1,.card h1{font-family:var(--serif);line-height:1.23;margin:0;font-weight:700}.hero h1{font-size:clamp(34px,5.4vw,66px)}.hero h1 span{color:var(--red)}.lede{color:var(--muted);max-width:33ch;margin:20px 0 24px}.primary,.secondary{min-height:46px;padding:10px 20px;border:1px solid transparent;border-radius:3px}.primary{background:var(--red);color:#fff8e9}.primary:not(:disabled):hover{background:#762d27}.secondary{background:transparent;border-color:var(--line);color:var(--ink)}.secondary:not(:disabled):hover{background:#ede3d2}.meta{margin:15px 0 0;font-size:.82rem;color:var(--muted)}
+.landscape{min-height:240px;position:relative;overflow:hidden;isolation:isolate;background:radial-gradient(circle at 69% 29%,#d88166 0 10%,transparent 10.5%),linear-gradient(150deg,#e8d8b8,#b3b8a0 66%,#718d7d)}.landscape:before,.landscape:after{content:"";position:absolute;inset:0;z-index:-1}.landscape:before{background:linear-gradient(165deg,#647f72,#a7ad93);clip-path:polygon(0 72%,18% 42%,25% 48%,37% 39%,54% 66%,71% 48%,82% 54%,100% 33%,100% 100%,0 100%)}.landscape:after{background:linear-gradient(150deg,#628477,#294a3f);clip-path:polygon(0 74%,12% 59%,26% 68%,36% 63%,56% 80%,73% 68%,84% 73%,100% 61%,100% 100%,0 100%)}.landscape span{position:absolute;right:18px;bottom:15px;color:#fff4dd;font:16px var(--serif);letter-spacing:.23em}
+.quiz,.result{max-width:700px;margin:auto}.progress-head{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:.9rem;margin-bottom:8px}.track{height:7px;background:#e0d5c1;border-radius:9px;overflow:hidden}.fill{height:100%;background:var(--red);width:0;transition:width .28s ease}.question{margin-top:24px;padding:clamp(18px,5vw,38px);border:1px solid var(--line);background:#faf5ea}.question h1{font-size:clamp(25px,4vw,39px)}.options{display:grid;gap:9px;margin-top:24px}.option{display:flex;align-items:center;gap:12px;position:relative;padding:10px 13px;min-height:48px;border:1px solid #cbbfaa;border-radius:3px;cursor:pointer;background:#fffaf0}.option:hover,.option:focus-within{border-color:var(--red)}.option:has(input:checked){border-color:var(--red);background:#f2e0d5}.option input{accent-color:var(--red);width:17px;height:17px;flex:none}.actions{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+.card{position:relative;border:1px solid #b1a48d;background:#fdf6e8;overflow:hidden}.portrait{position:relative;padding:clamp(22px,5vw,39px);background:radial-gradient(circle at 85% 33%,#c9855d 0 8%,transparent 8.5%),linear-gradient(125deg,#263d34,#456457);color:#fff5dd}.portrait .kicker{color:#ffcfab}.portrait h1{font-size:clamp(48px,10vw,85px)}.portrait .archetype{margin:8px 0 0;color:#f5e5c7}.portrait .seal{position:absolute;right:24px;bottom:20px;color:#ffcfab}.card-body{padding:clamp(18px,4.5vw,34px)}.quote{margin:0 0 16px;font:700 clamp(20px,4.6vw,29px)/1.45 var(--serif);color:var(--red)}.traits{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}.traits span{font-size:.83rem;border:1px solid var(--line);padding:2px 10px;border-radius:20px}.detail{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}.detail h2{font-size:.82rem;color:var(--red);margin:0;letter-spacing:.14em}.detail p{margin:3px 0 0}.card-foot{font-size:.75rem;color:var(--muted);margin:16px 0 0}.result-actions{justify-content:center}.note{text-align:center;color:var(--muted);font-size:.84rem;margin:12px 0}.enter{animation:enter .24s ease-out}@keyframes enter{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:650px){.shell{width:calc(100% - 28px)}.hero{grid-template-columns:1fr}.landscape{min-height:145px}.mast{padding:12px 0}.folio{letter-spacing:.02em}.portrait .seal{right:16px}.question{margin-top:17px}.options{margin-top:18px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="mast"><div class="brand"><span class="seal" aria-hidden="true">缘</span><span>城市缘分簿</span></div><span class="folio">趣味人格测试 · 03</span></header>
+<main>
+<section id="home" class="hero enter" aria-labelledby="home-title">
+<div class="intro"><p class="kicker">从日常选择里，找到一座城</p><h1 id="home-title" tabindex="-1">你的宿命恋人<br>来自<span>哪个城市</span>？</h1><p class="lede">如果心动有一个地址，会是成都的灯火、杭州的湖风，还是别处的一封来信？</p><button id="start" class="primary" type="button">开始测试 <span aria-hidden="true">→</span></button><p class="meta">40 道单选 · 约 5 分钟 · 答案仅在当前页面评分</p><p class="meta">为轻松娱乐设计，配对由日常偏好生成。</p></div>
+<div class="landscape" aria-hidden="true"><span>山水有相逢</span></div>
+</section>
+<section id="quiz" class="quiz" hidden>
+<div class="progress-head"><span id="chapter"></span><span id="progress-text"></span></div>
+<div id="progress" class="track" role="progressbar" aria-label="答题进度" aria-valuemin="0"><div class="fill"></div></div>
+<form id="form" class="question">
+<h1 id="question" tabindex="-1"></h1>
+<div id="options" class="options" role="radiogroup" aria-labelledby="question"></div>
+<div class="actions"><button id="back" type="button" class="secondary">上一题</button><button id="next" type="submit" class="primary" disabled>下一题</button></div>
+</form>
+</section>
+<section id="result" class="result" hidden>
+<article class="card">
+<div class="portrait"><p class="kicker">你的宿命恋人来自</p><h1 id="city" tabindex="-1"></h1><p id="person" class="archetype"></p><span class="seal" aria-hidden="true">缘</span></div>
+<div class="card-body"><p id="quote" class="quote"></p><div id="traits" class="traits" aria-label="性格特点"></div>
+<section class="detail"><h2>为什么是你们</h2><p id="reason"></p></section>
+<section class="detail"><h2>你的隐藏优势</h2><p id="strength"></p></section>
+<section class="detail"><h2>约会彩蛋</h2><p id="egg"></p></section>
+<p class="card-foot">你的宿命恋人来自哪个城市 · 趣味人格测试</p></div>
+</article>
+<p class="note">可以截图留下结果卡。城市取自人物相关的文化意象，配对为趣味创作。</p>
+<div class="actions result-actions"><button id="restart" class="secondary" type="button">重新测试</button></div>
+</section>
+</main>
+</div>
+<script>
+"use strict";
+const results = {
+ A:["成都","诸葛亮","谋士","我把变数都算过，唯独想和你走一条新路。",["沉着","周全","讲方法"],"你的选择更偏向先理清局面，再给出可靠的行动。你容易被做事有章法、又肯与你商量的人打动。","你能把让人焦虑的一团乱麻，拆成今天就能做的一件小事。","在老茶馆共画一张半日路线图，各负责安排一个意外惊喜。"],
+ B:["洛阳","武则天","帝王","我有自己的天下，也给你留了并肩的位置。",["果断","自信","有主见"],"你习惯说清目标和边界，关键时刻愿意拍板。你欣赏有主见、敢和你交换意见，也肯共同承担后果的人。","你善于在大家犹豫时定下优先级，把想法推向现实。","到夜市各挑一道从没吃过的菜，再互相给对方决定第一口。"],
+ C:["绍兴","王羲之","文人","在人声里走散，也能凭一笔字认出你。",["细腻","审美敏锐","善于表达"],"你会留意措辞、触感和生活里的小细节。能读懂你那些没说透的在意，并愿意认真回应的人，最能靠近你。","你能把模糊的感受说得具体，让对方知道怎样照顾你。","挑一张素纸，各自写下今天最想记住的一句话，交换带走。"],
+ D:["苏州","专诸","侠客","你若被风雨困住，我就带伞到门口。",["重情义","直率","护短有分寸"],"朋友为难时，你倾向于直接伸手，遇到不公平也愿意开口。真诚、有担当、把承诺做出来的人，更容易赢得你的信任。","你擅长给出具体的支持，让对方知道自己有同伴。","在平江路约一次散步，轮流替对方选一家想进去的小店。"],
+ E:["南京","李白","诗人","沿着月光走岔路，也算准时赴约。",["好奇","浪漫","爱即兴"],"你会为新鲜感和不经意的美停下脚步。愿意陪你临时改道、也能分享奇想的人，会让关系更有生气。","你能在日常里发现可玩的地方，让重复的日子重新有趣。","去秦淮河边，用街灯、桥影或风声给彼此起一个今晚才用的外号。"],
+ F:["杭州","岳飞","将领","你说一起走，我便把每一步都走实。",["守约","坚韧","执行力强"],"你喜欢用持续行动表达重视，答应的事会认真做完。稳定、守信，遇到辛苦也肯互相搭把手的人，能给你踏实感。","你能把一阵热情变成日常习惯，在关系里积累信任。","挑一段西湖步道，约好一同走完，终点再决定喝哪家热茶。"],
+ G:["九江","陶渊明","隐士","院门可以虚掩，晚饭等你一起吃。",["独立","平和","自在"],"你珍惜自己的节奏，也重视亲密关系里的空间。相处时可以自在安静、各做各的而依然亲近的人，最合你意。","你能识别自己何时需要缓一缓，也懂得把空间还给彼此。","找一处看得见山的窗边，各读十分钟自己的书，再念一句喜欢的话。"]
+};
+
+// 每行包含题干和四个选项。选项首字母对应上方的性格原型。
+const raw = [
+"突然多出半天假，你先做什么？|A 看天气和路况，排个轻松行程|C 找一家惦记很久的展馆或书店|E 上一辆熟悉的公交，到没去过的站下车|G 泡壶茶，留半天给自己",
+"合租的客厅太杂乱，大家终于坐下来谈。你会？|B 提议当场定下公共区域的使用规则|D 先替最近特别忙的室友分担一点|F 定个固定整理时段，从这一周做起|A 先看杂物都从哪来，再重排收纳位置",
+"新买的杯子，你最看重什么？|C 釉面的手感和颜色|E 有让人一眼想起某段旅行的图案|G 拿起来舒服，素一点也好|B 一眼喜欢就买，杯子也要有我的个性",
+"周末约好见面，临出门下大雨。你会？|D 先问对方是否需要接送或带伞|F 换条安全的路线，照原约定碰面|A 发两个室内方案，附上交通时间|C 选家能听见雨声的小店",
+"手机相册太满，你最舍不得删掉哪类照片？|E 走错路时撞见的好风景|G 安静清晨家里的光影|B 做成一件大事时拍的纪念照|D 和重要的人并肩忙碌的抓拍",
+"你把早起列进了下个月的计划。接下来？|F 定个固定起床点，坚持一周再看|A 先算出要睡够得几点上床|C 写下想在清晨留给自己的事|E 试一次日出散步，给早起添点期待",
+"去菜市场挑今晚的食材，你会？|G 买熟悉的新鲜菜，做顿清淡的饭|B 想好主菜，直奔常去的摊位|D 顺手问同住的人想吃什么|F 按单买齐，顺便备好明天的食材",
+"朋友第一次来你住的地方，最可能注意到？|A 常用物件很好找|C 几处花了心思布置的小角落|E 架上有些从路上随手带回来的东西|G 有一张适合什么都不干的椅子",
+"小组讨论一直兜圈子，离交付只剩两天。你会？|B 请大家说清最想保住的目标，当场定方向|D 问问意见最少被听到的人卡在哪里|F 接下关键一块，按时间点推进|A 把争议点列出来，确认哪些其实不用解决",
+"重要邮件迟迟没收到回音，你会？|C 斟酌语气，再发一封简短的提醒|E 用一个贴题的小创意换种开场|G 先去做自己的事，晚些时候再看|B 直接联系能答复的人，确认回复时间",
+"团队活动当天，搭档临时请假。你先做什么？|D 问搭档还好吗，并帮忙接掉紧急事项|F 把必须完成的现场任务接起来|A 重新排优先级和人手|C 向其他人解释变动，照顾当事人的难处",
+"买到不合适的东西，店员说暂时没法处理。你会？|E 问问能否换成平时没想过但用得上的款式|G 先回去盘算它有没有别的用途|B 明确提出想要的处理结果|D 如果是常见问题，也提醒同行朋友留意",
+"你接手一本大家共用的旅行记账本。你会？|F 每天睡前把新增花销记完|A 统一分类和分摊规则|C 给每笔特别的花销补一句来由|E 记几个路上意外捡到的好点子",
+"同伴在登山途中说想提前下山。你会？|G 接受今天走到这里，找个地方休息|B 和大家定下返程决定并立即执行|D 陪对方一起下山，照应路上的情况|F 调整步速，按稳妥路线送大家返回",
+"两件喜欢的事撞了时间，你怎么取舍？|A 看哪件更难改期，再排顺序|C 看哪件对自己此刻更有意义|E 选更有机会遇见新鲜事的那个|G 选结束后还能给自己留点空闲的那个",
+"聚会里两个人都在等别人先开口，你会？|B 主动介绍彼此，并抛出一个好答的话题|D 先把落单的人邀进自己的话题|F 帮忙把原本安排的活动启动起来|A 想想两人最近有什么共同兴趣，再牵个线",
+"朋友要送你生日礼物，哪种最打动你？|C 写着你曾随口说过的小事的卡片|E 一张目的地保密的出游车票|G 一小盆植物，附送一个不用做安排的下午|B 一件支持你完成目标的实用工具",
+"在群里收到一个说得不太客气的意见，你会？|D 点明哪句话容易伤人，再聊事情本身|F 先把能落实的改动做出来|A 问清对方到底指哪一处|C 私下找对方聊，解释自己刚才的感受",
+"和新朋友一起逛街，你喜欢怎么走？|E 让陌生小巷决定接下来的路线|G 走累就坐，彼此不用一直说话|B 各点一个必去的地方，爽快出发|D 谁想停留就多等一会儿，互相照应",
+"亲近的人最近总取消约定，你倾向怎么聊？|F 约一个双方都能长期守住的时间|A 先问清是时间冲突还是需要调整相处频率|C 说清我在意的其实是哪部分|E 提议换个更轻松、随时能开始的见面方式",
+"朋友搬家，你最自然的参与方式是？|G 等人都走后，陪朋友安静吃顿饭|B 帮忙定下搬运顺序，现场做决定|D 人到现场，有重箱子就一起抬|F 按约定时间到，帮到自己负责的部分收尾",
+"与重要的人难得同时有空，你最愿意做什么？|A 一起安排一直想实现的小计划|C 找个能慢慢说话的角落，聊聊近况|E 随手抽一个地点，马上出门|G 各自做喜欢的事，累了就靠一会儿",
+"努力很久的事落空了，你当天会？|B 给自己定一个接下来能掌控的决定|D 找信任的人聊聊，也听听对方怎么想|F 把手头还能完成的小事做完|A 复盘出现偏差的那几个环节",
+"对方记错了一个对你重要的日子，你会？|C 告诉对方这个日子为何对我有意义|E 临时补办一个小小的庆祝|G 等情绪缓下来，再看自己想怎么开口|B 直接说我想怎么补过，以及下次怎么记",
+"有人当面夸你，你最希望听见？|D 有你在的时候，我知道会有人站我这边|F 你答应的事情总会做到|A 你把我最担心的事提前想到了|C 你让我觉得我的感受有人听懂",
+"心情紧绷的时候，什么能让你松下来？|E 换个没去过的地方转一圈|G 关掉通知，独处一会儿|B 把拖着没决定的事定下来|D 找个放心的人，一起做顿饭或走一段路",
+"争执暂停后，你想用什么方式和好？|F 说定一项彼此能做到的调整，并真的开始做|A 找出误会从哪一句开始，下次提前说清|C 认真说一句刚才太急没来得及说的话|E 约个轻松的小活动，再找机会慢慢聊",
+"连续几天事都很多，你想怎么照顾自己？|G 划出一段无需回复任何人的时间|B 砍掉优先级最低的几件事|D 直接请亲近的人搭把手|F 维持吃饭和睡觉的时间，先把节奏稳住",
+"你发现自己误会了一个人，第一步是？|A 回想事实和自己的推测分别是什么|C 跟对方道歉，说明自己误解了哪句话|E 换个自在的场合，邀请对方重新聊聊|G 先整理好情绪，再单独联系对方",
+"有人爽约，又没及时解释，你会？|B 说明我的时间也需要被尊重|D 问他路上是不是出了什么事|F 看之后是否会用行动补上，再决定怎么约|A 先了解情况，找出能避免再碰到的安排",
+"书店里有四本书放在一起，你随手挑哪本？|C 有手写字迹和私人随笔的一本|E 收录陌生地方传说的一本|G 讲山野小院与自在生活的一本|B 写一个人如何在关键时刻做决定的一本",
+"你想学习一项新技能，最吸引你的是？|D 学会修理小物件，能帮身边人应急|F 选一个可以每周练习并记录变化的运动|A 学会做路线规划，让复杂出行变轻松|C 学写短文或拍照，留下生活里的感觉",
+"散步经过一块公共空地，你希望那里变成？|E 能随时遇见演出的小广场|G 有树荫和长椅的社区花园|B 可以召集居民讨论与发起活动的空间|D 邻里能交换闲置用品和互相帮忙的角落",
+"给陌生城市的一天定个小主题，你选？|F 完成一条从出发前就看好的路线|A 带着地图看看这座城市怎么连在一起|C 看看当地人怎么写字、做器物或装饰店面|E 用一天收集七个计划外的发现",
+"你要办一场只有几位熟人的小聚，愿意负责？|G 找个安静、坐久也舒服的地方|B 敲定时间地点，发出简单明确的邀请|D 留意谁不方便过来，帮忙一起想办法|F 把答应准备的食物和物件按时带齐",
+"如果留一个空抽屉给未来，你想放进去？|A 一张会随着现实慢慢调整的愿望地图|C 写给自己和重要之人的几封信|E 各处捡来的车票和小玩意|G 一段不必填满的留白",
+"临时收到两张你不太熟悉的演出票，你会？|B 看一眼介绍，感兴趣就直接决定|D 问问最近需要散心的朋友愿不愿来|F 先确认能准时到场，答应了就按时去|A 查交通和散场时间，再看看能不能成行",
+"你想为亲近的人准备一个惊喜，最可能选？|C 记下对方以前随口提到的心愿，悄悄实现|E 在散步路线上藏几个轻松好玩的线索|G 把繁忙的一天留出一顿安静的晚饭|B 主动兑现对方一直想试、却没下决心的事",
+"亲密关系里，哪种小事最能给你安全感？|D 我遇到难处时对方肯来帮一把|F 平常的约定都被记得并照做|A 遇到变化能一起把新的安排说清楚|C 我说不出完整的话，对方也愿意等我讲完",
+"如果一起写下未来一年的愿望，你最想写？|E 常留出时间走几条没有走过的路|G 有各自喜欢的生活，也常常一起吃饭|B 各自做成一件重要的事，并肩庆祝|D 谁需要帮忙时，都能放心开口"
+];
+
+const questions = raw.map((row, index) => {
+ const [prompt, ...entries] = row.split("|");
+ const options = entries.map(entry => ({ type: entry[0], label: entry.slice(2) }));
+ // 轮换显示位置，避免同一个性格原型总在同一位置。
+ const offset = (index + Math.floor(index / 7)) % options.length;
+ return { prompt, options: options.slice(offset).concat(options.slice(0, offset)) };
+});
+const chapters = [[8, "日常习惯"], [15, "处事方式"], [22, "社交模式"], [30, "情绪反应"], [40, "兴趣偏好"]];
+const types = Object.keys(results);
+const opportunities = Object.fromEntries(types.map(type => [
+ type, questions.filter(question => question.options.some(option => option.type === type)).length
+]));
+
+function score(choices) {
+ if (choices.length !== questions.length) return null;
+ const weights = Object.fromEntries(types.map(type => [type, 0]));
+ const boosts = Object.fromEntries(types.map(type => [type, 0]));
+ const chosenTypes = [];
+ for (const [index, choice] of choices.entries()) {
+  const option = questions[index].options[choice];
+  if (!option) return null;
+  weights[option.type]++;
+  // 最后四题直接涉及陪伴方式，同分时优先参考这些答案。
+  if (index >= questions.length - 4) boosts[option.type]++;
+  chosenTypes.push(option.type);
+ }
+ const compare = (a, b) =>
+  weights[b] * opportunities[a] - weights[a] * opportunities[b] ||
+  boosts[b] - boosts[a] ||
+  chosenTypes.lastIndexOf(b) - chosenTypes.lastIndexOf(a);
+ return [...types].sort(compare)[0];
+}
+
+const byId = id => document.getElementById(id);
+const home = byId("home");
+const quiz = byId("quiz");
+const result = byId("result");
+const form = byId("form");
+const next = byId("next");
+const back = byId("back");
+const questionHeading = byId("question");
+const optionsBox = byId("options");
+const progress = byId("progress");
+let index = 0;
+let answers = [];
+
+function show(view) {
+ for (const section of [home, quiz, result]) section.hidden = section !== view;
+}
+function focusHeading(heading) {
+ window.scrollTo(0, 0);
+ heading.focus({ preventScroll: true });
+}
+function updateProgress() {
+ const answered = answers.filter(answer => answer !== undefined).length;
+ progress.setAttribute("aria-valuenow", answered);
+ progress.firstElementChild.style.width = (100 * answered / questions.length) + "%";
+ byId("progress-text").textContent = "第 " + (index + 1) + " / " + questions.length + " 题";
+}
+function renderQuestion() {
+ const question = questions[index];
+ byId("chapter").textContent = chapters.find(([end]) => index < end)[1];
+ questionHeading.textContent = question.prompt;
+ optionsBox.replaceChildren(...question.options.map((option, choice) => {
+  const label = document.createElement("label");
+  label.className = "option";
+  const input = document.createElement("input");
+  input.type = "radio";
+  input.name = "answer";
+  input.value = choice;
+  input.checked = answers[index] === choice;
+  const description = document.createElement("span");
+  description.textContent = option.label;
+  label.append(input, description);
+  return label;
+ }));
+ updateProgress();
+ back.disabled = index === 0;
+ next.disabled = answers[index] === undefined;
+ next.textContent = index === questions.length - 1 ? "查看结果" : "下一题 →";
+ form.classList.remove("enter");
+ void form.offsetWidth;
+ form.classList.add("enter");
+ focusHeading(questionHeading);
+}
+function renderResult(type) {
+ const [city, person, role, quote, traits, reason, strength, egg] = results[type];
+ byId("city").textContent = city;
+ byId("person").textContent = "恋人原型 · " + person + " / " + role;
+ byId("quote").textContent = "「" + quote + "」";
+ byId("traits").replaceChildren(...traits.map(trait => {
+  const tag = document.createElement("span");
+  tag.textContent = trait;
+  return tag;
+ }));
+ byId("reason").textContent = reason;
+ byId("strength").textContent = strength;
+ byId("egg").textContent = egg;
+ show(result);
+ result.classList.add("enter");
+ focusHeading(byId("city"));
+}
+progress.setAttribute("aria-valuemax", questions.length);
+byId("start").addEventListener("click", () => {
+ show(quiz);
+ renderQuestion();
+});
+optionsBox.addEventListener("change", event => {
+ if (event.target.name !== "answer") return;
+ answers[index] = Number(event.target.value);
+ next.disabled = false;
+ updateProgress();
+});
+back.addEventListener("click", () => {
+ if (index === 0) return;
+ index--;
+ renderQuestion();
+});
+form.addEventListener("submit", event => {
+ event.preventDefault();
+ if (answers[index] === undefined) return;
+ if (index === questions.length - 1) {
+  const type = score(answers);
+  if (type) renderResult(type);
+  return;
+ }
+ index++;
+ renderQuestion();
+});
+byId("restart").addEventListener("click", () => {
+ answers = [];
+ index = 0;
+ show(home);
+ focusHeading(byId("home-title"));
+});
+</script>
+</body>
+</html>

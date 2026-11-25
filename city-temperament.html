@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#193731">
+<title>哪座城市和你的气质天生相合</title>
+<style>
+.counterpart{margin:0 0 12px;font-size:1rem;font-weight:700;color:var(--muted)}
+:root{--ink:#193731;--paper:#faf2e3;--muted:#62584a;--red:#9b352a;--line:#d5c6a8;--serif:"Songti SC","Noto Serif CJK SC",SimSun,STSong,serif}
+*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;background:#ebe2d1;color:var(--ink);font:16px/1.6 system-ui,"Microsoft YaHei",sans-serif}button{cursor:pointer;font:inherit}button:focus-visible,input:focus-visible+span{outline:3px solid #9b4425;outline-offset:3px}.wrap{width:min(960px,calc(100% - 36px));margin:auto}header,footer{color:var(--muted);font-size:.78rem;letter-spacing:.12em;padding:20px 2px}header{display:flex;align-items:center;justify-content:space-between;gap:8px}header b{display:inline-grid;place-items:center;background:var(--red);color:#fff3db;border:3px double #fff3db;border-radius:3px;width:32px;height:32px;font:20px var(--serif);margin-right:8px;vertical-align:middle}footer{text-align:center}
+.hero,.sheet,.card{position:relative;overflow:hidden;border-radius:4px;box-shadow:0 15px 42px #30271924}.hero{display:grid;grid-template-columns:1.35fr 1fr;min-height:515px;background:radial-gradient(ellipse at 85% 65%,#3b5d4e,#193731 65%);color:#fff4dc}.hero::after,.card::after{content:"";position:absolute;inset:9px;border:1px solid #ac885b65;pointer-events:none}.intro{align-self:center;padding:clamp(32px,7vw,75px);padding-right:12px}.eyebrow{margin:0 0 16px;color:#e8cc98;font-size:.78rem;letter-spacing:.18em;font-weight:bold}h1,h2,h3,legend{font-family:var(--serif)}h1{margin:0;font-size:clamp(2.45rem,6.4vw,5rem);line-height:1.12;letter-spacing:-.045em}.intro p:not(.eyebrow){max-width:24em;color:#f0e1c3;margin:20px 0 24px}.art{display:grid;place-items:center;position:relative;isolation:isolate;color:#ead6ac}.art::before,.art::after{content:"";position:absolute;border:1px solid #e7cb8b65;border-radius:50%;width:min(80%,322px);aspect-ratio:1;z-index:-1}.art::after{width:min(69%,276px);border-style:dashed}.art span{writing-mode:vertical-rl;font:clamp(3.4rem,8vw,7rem)/1 var(--serif);letter-spacing:.12em;text-shadow:0 8px 24px #0d221b}.art i{position:absolute;right:18%;bottom:20%;display:grid;place-items:center;width:46px;height:46px;font:23px var(--serif);transform:rotate(-9deg);border:4px double #ead6ac;background:var(--red);border-radius:3px}
+button{min-height:46px;padding:9px 17px;border:1px solid transparent;border-radius:3px;background:var(--ink);color:#fff6e4;font-weight:700}button:hover{background:#2d5348}.gold{background:#e8cc98;color:#20332b}.gold:hover{background:#f7dcb0}.ghost{background:transparent;color:var(--ink);border-color:#a7997f}.ghost:hover{background:#ebe1cb}button:disabled{opacity:.48;cursor:default}
+.sheet{max-width:680px;margin:auto;background:var(--paper);border:1px solid var(--line);padding:clamp(20px,5.5vw,52px)}.progress-head,.controls,.card-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.progress-head{color:var(--muted);font-size:.85rem;margin-bottom:8px}.progress-head strong{color:var(--red);font-variant-numeric:tabular-nums}progress{display:block;width:100%;height:6px;appearance:none;border:0;background:#e6d9bf;border-radius:10px;overflow:hidden}progress::-webkit-progress-bar{background:#e6d9bf}progress::-webkit-progress-value{background:var(--red);transition:width .22s}progress::-moz-progress-bar{background:var(--red)}fieldset{min-width:0;border:0;padding:0;margin:23px 0 18px}legend{padding:0;margin-bottom:17px;width:100%;font-size:clamp(1.45rem,4vw,2rem);font-weight:bold;line-height:1.32}.choice{display:block;position:relative;margin-bottom:9px;cursor:pointer}.choice input{position:absolute;opacity:0}.choice span{display:flex;align-items:center;gap:11px;background:#fffbf2;border:1px solid var(--line);border-radius:4px;min-height:52px;padding:9px 12px}.choice b{flex:none;display:grid;place-items:center;width:27px;height:27px;border:1px solid var(--line);border-radius:50%;font-size:.76rem}.choice:hover span{border-color:#71896e}.choice input:checked+span{background:#e5ecde;border-color:#4d694e}.choice input:checked+span b{color:white;background:var(--ink);border-color:var(--ink)}.enter{animation:enter .26s ease-out both}@keyframes enter{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.result{max-width:580px;margin:auto}.card{background:var(--paper);border:1px solid var(--line);padding:clamp(23px,6vw,46px)}.card-head{color:var(--red);font-weight:700;letter-spacing:.12em;font-size:.78rem}.badge{font:700 1.15rem var(--serif);border:3px double currentColor;padding:5px 8px;transform:rotate(5deg)}.card h2{font-size:clamp(2.8rem,11vw,5rem);line-height:1.06;margin:9px 0}.quote{font:bold clamp(1.1rem,4vw,1.42rem)/1.45 var(--serif);color:var(--red);margin:14px 0}.traits{font-weight:bold;font-size:.9rem;padding-bottom:12px;border-bottom:1px solid var(--line)}.card h3{font-size:1.04rem;margin:10px 0 1px}.detail p{margin:0;font-size:.91rem;color:#504739}.card-foot{border-top:1px solid var(--line);margin:14px 0 0;padding-top:8px;font-size:.72rem;color:var(--muted)}.actions{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:14px 0 4px}.hint{text-align:center;color:var(--muted);font-size:.78rem;margin:4px 0 10px}.capture header,.capture footer{display:none}.capture main{padding:11px 0}.capture .card{max-width:430px;margin:auto;padding:25px}.capture .card h2{font-size:2.9rem}.capture .quote{margin:8px 0}.capture .card h3{margin-top:6px}.capture .detail p{font-size:.84rem}
+@media(max-width:620px){.wrap{width:calc(100% - 24px)}header{padding:12px 2px}.hero{min-height:0;grid-template-columns:1fr}.intro{padding:29px 24px 8px}.art{min-height:167px}.art span{font-size:3.25rem;writing-mode:horizontal-tb}.art::before{width:150px}.art::after{width:131px}.art i{right:calc(50% - 92px);bottom:19px;width:36px;height:36px;font-size:16px}.sheet{padding:19px 15px}.card{padding:23px 21px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><span><b aria-hidden="true">印</b>城市气质测试</span><span>趣味人格 · 40 题</span></header>
+<main>
+<section id="home" class="hero" aria-labelledby="title">
+  <div class="intro">
+    <p class="eyebrow">用 40 个日常选择，找到与你合拍的城</p>
+    <h1 id="title" tabindex="-1">哪座城市和你的气质天生相合</h1>
+    <p>临时改计划、朋友来求助、闲下一个下午，你会怎么选？做完 40 道生活题，看看哪座城市与你合拍，又有哪位古人和你相似。</p>
+    <button id="start" class="gold" type="button">开始测试</button>
+  </div>
+  <div class="art" aria-hidden="true"><span>寻城</span><i>合</i></div>
+</section>
+<section id="quiz" class="sheet" aria-labelledby="question" hidden>
+  <div class="progress-head"><span id="topic"></span><strong id="count"></strong></div>
+  <progress id="progress" max="40" value="0" aria-label="已作答题数"></progress>
+  <form id="answer-form">
+    <fieldset id="group"><legend id="question" tabindex="-1"></legend><div id="choices"></div></fieldset>
+    <div class="controls"><button id="back" class="ghost" type="button">上一题</button><button id="next" type="submit" disabled>下一题</button></div>
+  </form>
+</section>
+<section id="result" class="result" aria-labelledby="city" hidden>
+  <article class="card">
+    <div class="card-head"><span>与你气质相合的城市</span><span class="badge" id="role"></span></div>
+    <h2 id="city" tabindex="-1"></h2>
+    <p id="person" class="counterpart"></p>
+    <p id="quote" class="quote"></p><div class="traits" id="traits"></div>
+    <div class="detail">
+      <h3>为什么像你</h3><p id="reason"></p>
+      <h3>隐藏优势</h3><p id="strength"></p>
+      <h3>趣味彩蛋</h3><p id="easter"></p>
+    </div>
+    <p class="card-foot">《哪座城市和你的气质天生相合》 · 趣味人格测试</p>
+  </article>
+  <div class="actions"><button id="capture" type="button" aria-pressed="false">截图模式</button><button id="restart" class="ghost" type="button">重新测试</button></div>
+  <p id="hint" class="hint" hidden>用手机或电脑的截图功能，截取上方结果卡。</p>
+</section>
+</main>
+<footer>城市和历史人物取作趣味原型，结果仅供娱乐。</footer>
+</div>
+<script>
+"use strict";
+
+// 选项开头的字母对应维度，竖线后是玩家看到的文字。
+const chapters = [
+  [
+    "日常习惯",
+    [
+      [
+        "醒来发现比闹钟早了半小时",
+        "M|梳理今天最难的一件事",
+        "E|提前敲定今天的安排",
+        "Q|靠窗看看天色",
+        "I|再躺一会儿"
+      ],
+      [
+        "常买的早餐突然停卖",
+        "M|比较附近几家再挑",
+        "W|就近买一份能带走的",
+        "H|顺便照顾同行人的口味",
+        "Q|试试没吃过的搭配"
+      ],
+      [
+        "你会怎样布置自己的桌面",
+        "E|划出功能区并保持一致",
+        "L|把常用工具摆得顺手又好看",
+        "W|把最急的东西放在手边",
+        "I|只留眼下需要的几件"
+      ],
+      [
+        "下班后临时空出一晚",
+        "H|问老朋友要不要吃饭",
+        "Q|坐一站陌生公交随便走走",
+        "L|把搁置的小作品收个尾",
+        "I|在家慢慢做顿饭"
+      ],
+      [
+        "你最常保存什么照片",
+        "L|摆盘、字体或有意思的设计",
+        "Q|一瞬间的光影",
+        "H|朋友不经意的笑脸",
+        "M|方便以后查找的信息"
+      ],
+      [
+        "逛超市前你通常怎么准备",
+        "M|按路线排好清单",
+        "E|先定好几天的餐食",
+        "W|随手记几个必须买的",
+        "Q|到了再看有什么新鲜货"
+      ],
+      [
+        "家里东西越堆越多",
+        "W|先清空最难用的角落",
+        "L|换个收纳方式让它顺眼",
+        "I|清掉很久没碰的东西",
+        "H|把适合的东西送给朋友"
+      ],
+      [
+        "周末出门你最想带什么",
+        "H|给同行人带的小点心",
+        "I|一本能坐着慢慢看的书",
+        "Q|相机或速写本",
+        "W|雨具和充电宝"
+      ]
+    ]
+  ],
+  [
+    "处事方式",
+    [
+      [
+        "同事提议整个方案推倒重来",
+        "M|先核对哪些判断已经变了",
+        "E|定下换方案的标准和截止时间",
+        "W|试改一小块看看能否跑通",
+        "L|先把能留下的好点子挑出来"
+      ],
+      [
+        "聚餐地点迟迟定不下来",
+        "E|收齐限制条件后定一家",
+        "M|先缩小到最可行的两家",
+        "H|问问一直没说话的人",
+        "Q|提议去新开的那家尝尝"
+      ],
+      [
+        "遇到说明书写得不清楚的东西",
+        "W|动手试最简单的一步",
+        "L|找个例子重新整理步骤",
+        "M|查清各个部件之间的关系",
+        "I|先放下，状态好时再看"
+      ],
+      [
+        "你接手一场小型活动",
+        "E|先明确目标与分工",
+        "H|先和参与的人聊聊期待",
+        "L|设计开场和流程细节",
+        "W|先落实场地与物资"
+      ],
+      [
+        "出游当天临时下起大雨",
+        "Q|改去一个没计划的室内展",
+        "I|找间茶馆坐着看雨",
+        "M|比较哪些原定项目还能去",
+        "W|马上确认改签和交通"
+      ],
+      [
+        "收到一份措辞很含糊的任务",
+        "L|举个例子请对方确认",
+        "M|列出几个可能的理解",
+        "E|确定谁有最终决定权",
+        "W|先交一小段可用的东西"
+      ],
+      [
+        "大家用了很久的办法明显不好用",
+        "W|挑一个环节先改掉",
+        "E|推动团队统一换新做法",
+        "H|了解大家舍不得换的原因",
+        "M|先找出浪费最多的步骤"
+      ],
+      [
+        "你有机会报一门新课",
+        "L|选一门能反复打磨作品的",
+        "Q|选一门会打开新视角的",
+        "W|选一门马上能用的",
+        "I|选一门可以按自己节奏学的"
+      ]
+    ]
+  ],
+  [
+    "社交模式",
+    [
+      [
+        "新朋友迟到半小时",
+        "H|发消息问要不要帮忙",
+        "I|照常享受自己的等待时间",
+        "Q|把等待变成附近散步",
+        "E|重约一个更能确定的时间"
+      ],
+      [
+        "朋友把群聊里的玩笑当真了",
+        "H|私下问他听完什么感受",
+        "L|把原意换个更准确的说法",
+        "M|先看看误会从哪句话开始",
+        "E|明确提醒大家先停一停"
+      ],
+      [
+        "饭桌上聊到你不熟悉的话题",
+        "M|问一个能厘清来龙去脉的问题",
+        "Q|听谁讲得有趣就跟着聊",
+        "I|安静听，偶尔接一句",
+        "H|给被打断的人递回话头"
+      ],
+      [
+        "朋友找你合办生日聚会",
+        "L|想一项有私人记忆的布置",
+        "H|邀请他很久没见的朋友",
+        "W|把购物和取货接下来",
+        "E|先把预算和日期定掉"
+      ],
+      [
+        "喜欢的乐队办小型演出",
+        "Q|不查歌单直接去现场",
+        "I|到边上找个舒服的位置",
+        "H|约那个最想去的朋友",
+        "L|留心灯光和曲目之间的呼应"
+      ],
+      [
+        "邻居在楼道里问路",
+        "H|陪他走到转角",
+        "W|直接指出最快的路线",
+        "M|先确认他要去哪个入口",
+        "I|给出方向后继续自己的事"
+      ],
+      [
+        "群里临时发起周末聚会",
+        "I|看是否占用预留给自己的时间",
+        "E|明确回复能不能参加",
+        "Q|看到玩法有趣就报名",
+        "H|问问有没有人需要搭车"
+      ],
+      [
+        "朋友与你意见不同",
+        "L|用例子把彼此的想法讲透",
+        "H|先确认对方在乎的是什么",
+        "E|说清哪些决定必须一起做",
+        "M|找一种能验证双方判断的方法"
+      ]
+    ]
+  ],
+  [
+    "情绪反应",
+    [
+      [
+        "忙了一天却发现做错方向",
+        "W|先修一个能修的地方",
+        "M|回看自己在哪一步下错判断",
+        "I|离开桌子十分钟",
+        "L|把经过写下来理顺"
+      ],
+      [
+        "别人公开质疑你的决定",
+        "E|说明决定依据并接受追问",
+        "M|索取能核对的反例",
+        "H|留心是否有人也被这决定影响",
+        "I|等情绪过去再谈"
+      ],
+      [
+        "一件期待很久的事被取消",
+        "Q|找个新去处补回好奇心",
+        "I|允许今天什么也不安排",
+        "H|找信任的人说一说",
+        "W|把空出来的时间用来办一件事"
+      ],
+      [
+        "好友收到坏消息",
+        "H|先陪一段，不急着提建议",
+        "W|问他今天有什么具体事情要帮做",
+        "L|写下几句能让他慢慢看的话",
+        "I|给他一点独处时间，晚些再问候"
+      ],
+      [
+        "刚完成一件对你很重要的事",
+        "E|给参与者说明结果和下一步",
+        "L|把过程写成一段记录",
+        "Q|去一个有气氛的地方庆祝",
+        "I|关掉提醒享受一段清静"
+      ],
+      [
+        "噪音让你越来越烦",
+        "W|先换个地方或戴耳塞",
+        "E|与有关的人约定安静时段",
+        "M|找到最吵的时段和来源",
+        "I|做一件能把注意力收回来的小事"
+      ],
+      [
+        "你不小心忘了赴约",
+        "H|打电话认真道歉",
+        "E|直接提出补约的具体时间",
+        "W|先确认现在过去还能不能帮上忙",
+        "L|把原因简洁说明，让对方少猜"
+      ],
+      [
+        "突然涌上来的灵感打断工作",
+        "Q|记下第一感觉再回头",
+        "L|把它写成一个能展开的片段",
+        "M|记清触发灵感的条件",
+        "W|记个关键词，先完成手上的事"
+      ]
+    ]
+  ],
+  [
+    "兴趣偏好",
+    [
+      [
+        "初到一座陌生城市",
+        "Q|走进第一条吸引我的小巷",
+        "M|读读街区地图再出门",
+        "L|找个展馆看当地作品",
+        "H|问早餐店老板附近哪里好逛"
+      ],
+      [
+        "书店里只能买一本书",
+        "L|一本文字和装帧都喜欢的书",
+        "M|一本有洞见的推理或策略书",
+        "I|一本适合慢读的随笔",
+        "E|一本能扩展我对公共生活理解的书"
+      ],
+      [
+        "你最想体验哪天的志愿活动",
+        "H|陪第一次来城里办事的人认路",
+        "W|帮团队布置活动现场",
+        "E|组织社区居民讨论公共空间",
+        "L|帮地方资料做整理和说明"
+      ],
+      [
+        "挑一处长期散步的地方",
+        "I|人少、能听见树声的小路",
+        "Q|每次走来都能看到新变化的河岸",
+        "L|有老铺招牌可看的街巷",
+        "W|路面干净且便于跑起来的绿道"
+      ],
+      [
+        "如果开个周末小店",
+        "E|办成街区里有人愿意常来的据点",
+        "L|做手工纸品和书签",
+        "H|留一面墙交换邻居故事",
+        "Q|随季节更换菜单与摆设"
+      ],
+      [
+        "在城市展览里你最容易停下看什么",
+        "M|一幅标出老路与新路的对照地图",
+        "E|城市如何决定新建公共设施",
+        "L|不同时代的书页和器物设计",
+        "Q|同一扇窗在四季里的光"
+      ],
+      [
+        "旅行归来最常带回什么",
+        "H|分给不同朋友的小礼物",
+        "Q|一段到处逛来的意外故事",
+        "I|一个独处时会想起的地方",
+        "W|一件下次旅行还能用的物品"
+      ],
+      [
+        "哪种周末最值得反复过",
+        "I|慢下来做自己想做的事",
+        "E|聚起几个人推动一件共同计划",
+        "M|解开一个困扰很久的问题",
+        "W|完成一件看得见摸得着的工作"
+      ]
+    ]
+  ]
+];
+
+const profiles = {
+  "M": [
+    "成都",
+    "谋士",
+    "诸葛亮",
+    "茶还没凉，你已经想好第三条路。",
+    "擅长预判 · 喜欢留后手 · 越复杂越冷静",
+    "你做决定前喜欢多看一步。成都的茶桌给这份深思留了时间，诸葛亮代表你做事时兼顾眼前和全局的一面。",
+    "你擅长把一场混乱整理成几条清晰的备选路线。",
+    "火锅开吃前，你连最后一碟毛肚该什么时候下都想好了。"
+  ],
+  "E": [
+    "西安",
+    "帝王",
+    "李世民",
+    "钟楼一响，你心里那张大地图就打开了。",
+    "善定方向 · 愿接责任 · 有组织感",
+    "你习惯把分散的意见收拢成一个共同决定。西安开阔的城门意象和李世民的掌局原型，映照你愿意出面定方向的一面。",
+    "当事情无人定夺时，你敢于给出一条可执行的共识。",
+    "朋友让你只订一张桌，你连聚餐迟到的集合办法都安排好了。"
+  ],
+  "L": [
+    "苏州",
+    "文人",
+    "文徵明",
+    "同一扇窗，你总能看出别人漏掉的那一格。",
+    "细致 · 懂取舍 · 擅长表达",
+    "你乐于修整细节，让意思讲得更准。苏州园林里步移景异的趣味，和文徵明的文人原型一起，呼应你的观察方式。",
+    "你能把说不明白的感觉变成别人看得见的细节。",
+    "你为一张便签选了三种纸，最后用了背面有压痕的那张。"
+  ],
+  "H": [
+    "洛阳",
+    "侠客",
+    "郭解",
+    "你总能在一桌热闹里，听见最轻的那句话。",
+    "热心 · 重承诺 · 擅长照应",
+    "你做选择时常把身边人的处境算进去。把洛阳街巷里的江湖感和郭解的游侠原型放在一起，正适合你的热心与行动力。",
+    "你能在别人开口前看见一个小难处，并给到恰当的帮助。",
+    "朋友说自己没事，你已经带汤按响了门铃。"
+  ],
+  "Q": [
+    "扬州",
+    "诗人",
+    "李白",
+    "你保留了一段空白行程，专门等好事发生。",
+    "善感受 · 喜欢即兴 · 对新鲜事敏锐",
+    "你常因一束光或一句话改变当天的计划。扬州的水边与李白诗中的远行，贴近你给偶然留位置的习惯。",
+    "你擅长把平常半天过成一段可讲的故事。",
+    "本来只去买伞，回家时多了一张船票。"
+  ],
+  "W": [
+    "杭州",
+    "将领",
+    "岳飞",
+    "别人还在问怎么办，你已经完成了第一步。",
+    "执行扎实 · 临变稳 · 顾及团队",
+    "你习惯先做一件立刻能改善局面的事。杭州的湖山与岳飞的将领原型配在一起，呼应你承担实际任务时的沉着。",
+    "你能用一个小动作稳住节奏，让其他人接得上。",
+    "旅行计划可以空白，你的充电宝永远是满电。"
+  ],
+  "I": [
+    "九江",
+    "隐士",
+    "陶渊明",
+    "庐山有云，你的下午也有自己的去处。",
+    "珍惜独处 · 节奏稳定 · 边界清晰",
+    "你知道什么时候需要收回注意力。九江的山水和陶渊明的田园原型，贴近你给日常留出呼吸空间的习惯。",
+    "你能从催促里抽身，辨认出真正值得投入的事。",
+    "群聊约了三轮，你在阳台上把一壶茶喝到了刚刚好。"
+  ]
+};
+
+const questions = chapters.flatMap(([topic, rows]) => rows.map(([title, ...entries], index) => {
+  const options = entries.map(entry => {
+    const [dimension, label] = entry.split("|");
+    return { dimension, label };
+  });
+  const offset = (title.length + index) % options.length;
+  return { topic, title, options: [...options.slice(offset), ...options.slice(0, offset)] };
+}));
+
+const dimensions = Object.keys(profiles);
+const opportunities = Object.fromEntries(dimensions.map(key => [
+  key, questions.filter(question => question.options.some(option => option.dimension === key)).length
+]));
+
+function scoreAnswers(selections) {
+  const picked = questions.map((question, index) => question.options[selections[index]].dimension);
+  const votes = Object.fromEntries(dimensions.map(key => [key, 0]));
+  for (const key of picked) votes[key] += 1;
+
+  // 维度得分 = 选中次数 / 出现题数。交叉相乘比较，避免浮点误差。
+  // 同分时取最近一次选中的同分维度，保证同一组答案结果稳定。
+  return [...new Set(picked.slice().reverse())].reduce((best, key) => {
+    return votes[key] * opportunities[best] > votes[best] * opportunities[key] ? key : best;
+  });
+}
+
+const byId = id => document.getElementById(id);
+const form = byId("answer-form");
+const choiceList = byId("choices");
+let answers = [];
+let current = 0;
+
+function setScreen(screen, heading) {
+  for (const id of ["home", "quiz", "result"]) byId(id).hidden = id !== screen;
+  byId(heading).focus({ preventScroll: true });
+  window.scrollTo(0, 0);
+}
+
+function setCapture(enabled) {
+  document.body.classList.toggle("capture", enabled);
+  byId("capture").setAttribute("aria-pressed", String(enabled));
+  byId("capture").textContent = enabled ? "退出截图模式" : "截图模式";
+  byId("hint").hidden = !enabled;
+  if (enabled) window.scrollTo(0, 0);
+}
+
+function renderQuestion() {
+  const question = questions[current];
+  byId("topic").textContent = question.topic;
+  byId("count").textContent = (current + 1) + " / " + questions.length;
+  byId("progress").value = answers.filter(Number.isInteger).length;
+  byId("question").textContent = question.title;
+  choiceList.replaceChildren();
+
+  question.options.forEach((option, index) => {
+    const label = document.createElement("label");
+    const input = document.createElement("input");
+    const line = document.createElement("span");
+    const letter = document.createElement("b");
+    label.className = "choice";
+    input.type = "radio";
+    input.name = "answer";
+    input.value = index;
+    input.checked = answers[current] === index;
+    letter.textContent = String.fromCharCode(65 + index);
+    letter.setAttribute("aria-hidden", "true");
+    line.append(letter, document.createTextNode(option.label));
+    label.append(input, line);
+    choiceList.append(label);
+  });
+
+  byId("back").disabled = current === 0;
+  byId("next").disabled = !Number.isInteger(answers[current]);
+  byId("next").textContent = current === questions.length - 1 ? "查看结果" : "下一题";
+  const group = byId("group");
+  group.classList.remove("enter");
+  void group.offsetWidth;
+  group.classList.add("enter");
+  setScreen("quiz", "question");
+}
+
+function renderResult() {
+  const profile = profiles[scoreAnswers(answers)];
+  ["city", "role", "person", "quote", "traits", "reason", "strength", "easter"].forEach((id, index) => {
+    byId(id).textContent = profile[index];
+  });
+  byId("person").textContent = "历史人物原型 · " + profile[2];
+  setScreen("result", "city");;
+}
+
+byId("start").addEventListener("click", renderQuestion);
+choiceList.addEventListener("change", event => {
+  if (byId("quiz").hidden || event.target.name !== "answer") return;
+  answers[current] = Number(event.target.value);
+  byId("progress").value = answers.filter(Number.isInteger).length;
+  byId("next").disabled = false;
+});
+form.addEventListener("submit", event => {
+  event.preventDefault();
+  if (byId("quiz").hidden || !Number.isInteger(answers[current])) return;
+  if (current === questions.length - 1) renderResult();
+  else {
+    current += 1;
+    renderQuestion();
+  }
+});
+byId("back").addEventListener("click", () => {
+  if (current === 0) return;
+  current -= 1;
+  renderQuestion();
+});
+byId("capture").addEventListener("click", () => {
+  setCapture(!document.body.classList.contains("capture"));
+});
+byId("restart").addEventListener("click", () => {
+  answers = [];
+  current = 0;
+  setCapture(false);
+  setScreen("home", "title");
+});
+</script>
+</body>
+</html>
